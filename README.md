@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Bienvenue sur le blog de Joëlle
+
+Joëlle partage avec vous les lieux insolite qu'elle a aimés.
 
 ## Available Scripts
 
