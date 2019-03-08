@@ -6,12 +6,12 @@ import $ from "jquery";
 
 import './App.css';
 
-$.get('http://localhost:8080/', function (response, error) {
- response.forEach(function(artic){
-//    new Product(artic.article_img, artic.article_description, artic.article_like, artic.article_comment);
-//  })
-//   console.log(response);
-});
+// $.get('http://localhost:8080/', function (response, error) {
+//  response.forEach(function(artic){
+// //    new Product(artic.article_img, artic.article_description, artic.article_like, artic.article_comment);
+// //  })
+// //   console.log(response);
+// });
 
 
 class App extends Component {
