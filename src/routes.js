@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Articles from './Components/Articles';
-import Comments from './Components/Comment';
+import Comment from './Components/Comment';
 
 
 const Routes = () => (
@@ -10,7 +10,7 @@ const Routes = () => (
     <Switch>
     <Route  path='/Header' component={Header}/>
     <Route  path='/Articles' component={Articles}/>
-    <Route  path='/Comments' component={Comment}/>
+    <Route  path='/Comment' component={Comment}/>
     </ Switch>
     </BrowserRouter>
 );

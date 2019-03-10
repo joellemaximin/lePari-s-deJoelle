@@ -17,7 +17,7 @@ class Header extends Component {
             <Nav.Item as="li">
                 <Nav.Link eventKey="link-2">Commentaires</Nav.Link>
             </Nav.Item>
-        </Nav>;
+        </Nav>
 
       </div>
       

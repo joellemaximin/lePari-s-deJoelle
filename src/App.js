@@ -3,14 +3,27 @@ import Header from './Components/Header/Header';
 import Articles from './Components/Articles';
 import Comments from './Components/Comment';
 import $ from "jquery";
+//import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
 
 import './App.css';
 
-$.get('http://localhost:3000/public/Images/hotel.jpg', function (response, error) {
-//  response.forEach(function(artic){
-//    new Article(artic.article_img, artic.article_description, artic.article_like, artic.article_comment);
-//  })
-  //console.log(response);
+$.get('http://localhost:8080/articles', function (response) {
+  response.forEach(function(model){
+    const div = document.createElement('div');
+    div.innerHTML = model.article_description;
+    document.body.appendChild(div);
+    console.log(model);
+  });
+});
+
+$.get('http://localhost:8080/users', function (response) {
+  response.forEach(function(model){
+    const div = document.createElement('div');
+    div.innerHTML = model.user_firstname;
+    document.body.appendChild(div);
+    console.log(model);
+  });
 });
 /*
 var articles = [];
@@ -59,58 +72,62 @@ class App extends Component {
     articles: [
       {
         id: 1,
-        image: "./hotel.jpg",
+        image: " http://localhost:3000/Images/hotel.jpg",
         description: "this is the first article",
         comment: "comment_id",
         like: false,
       },
       {
         id: 2,
-        image: " /public/Images/restau.jpeg",
+        image: " http://localhost:3000/Images/restau.jpeg",
         description: "this is the second article",
         comment: "comment_id",
         like: false,
       },
       {
         id: 3,
-        image:" http://localhost:3000/Images/Bmacron.jpg",
+        image:" http://localhost:3000/Images/opera.jpg",
         description: "this is the third article",
         comment: "comment_id",
         like: true,
       },
       {
         id: 4,
-        image:" http://localhost:3000/Images/sacrecoeur.jpeg",
+        image:" http://localhost:3000/Images/montmatre.jpg",
         description: "this is the 4 article",
         comment: "comment_id",
         like: true,
       },
       {
         id: 5,
-        img: " http://localhost:3000/Images/sacrecoeur.jpg",
+        img: " http://localhost:3000/Images/sacrecoeur.jpeg",
         description: "this is the 5 article",
         comment: "comment_id",
         like: true,
       },
       {
         id: 6,
-        img:" http://localhost:3000/Images/Bmacron.jpg",
+        img:" http://localhost:3000/Images/triomphe.jpeg",
         description: "this is the 6 article",
         comment: "comment_id",
         like: false,
       }
     ]
   }
-    //arraw function 
-
+  
+  //arraw function
+  
 
 
   render() {
 
     return (
       <div className="bodyapp">
+        <Navbar expand="lg" variant="light" bg="light">
+          <Navbar.Brand href="#">{this.props.header}</Navbar.Brand>
+        </Navbar>
         <Header/>
-        <Articles articles={this.state.articles}  onClick={() => this.like()} /*{this.markLike}*//>
+        <Articles articles={this.state.articles} /*{this.markLike}*//>
         <Comments/>
       </div>
     );

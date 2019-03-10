@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './Articles.css';
 //import images from './Images'
-//import Container from 'react-bootstrap/container';
-import $ from "jquery";
+//import $ from "jquery";
 import ArticleItem from './ArticleItem';
 //propType is  used to make sure the data you receive is valid
 import PropTypes from 'prop-types';
@@ -58,13 +57,10 @@ class Articles extends Component {
   render() {
       
     return this.props.articles.map((article) => (
+
         <ArticleItem key={article.id} article={article} />
-    
-    
-    
-    
-    
-    
+
+
     
     
     ));

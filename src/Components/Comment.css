@@ -1,0 +1,17 @@
+.createComent{
+    top: 20px;
+    flex: 1;
+    justify-content: 'center';
+    align-items: 'center';
+    margin-left: 100px;
+    padding: 20px 70px;
+    margin: auto 14px;
+
+
+}
+
+Button .subutton{
+    padding: 29px auto;
+    float: right;
+
+}

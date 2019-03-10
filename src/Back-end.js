@@ -13,10 +13,10 @@ app.use(cors());
 db.serialize(() => {
     db.run('CREATE TABLE IF NOT EXISTS articles(article_id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, article_img  TEXT, article_description TEXT, article_like BOOLEAN, article_comment TEXT)');
     
-    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', './Images/hotel.jpg', "blablbalblab", true, "premier commentaire")
-    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', './Images/restau.jpg', "blablbalblab", false, "deuxième commentaire")
-    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', './Images/Bmacron.jpeg', "blablbalblab", true, "troisieme commentaire")
-    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', './Images/sacrecoeur.jpeg', "blablbalblab", false, "quatrieme commentaire")
+    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', 'http://localhost:3000/Images/hotel.jpg', "blablbalblab", true, "premier commentaire")
+    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', 'http://localhost:3000/Images/restau.jpeg', "blablbalblab", false, "deuxième commentaire")
+    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', 'http://localhost:3000/Images/opera.jpg', "blablbalblab", true, "troisieme commentaire")
+    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', ' http://localhost:3000/Images/montmatre.jpg', "blablbalblab", false, "quatrieme commentaire")
 
 
     db.run('CREATE TABLE IF NOT EXISTS users(user_id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, user_firstname  TEXT, user_lastname TEXT, user_profile TEXT)');
@@ -33,12 +33,17 @@ db.serialize(() => {
     db.run('INSERT INTO comments (comment_comment, user_id) VALUES (?, ?)', 'I am still a student. My mother is very gentle and soft while my father is a little bit hot-tempered. We love each other very much. Although sometimes we might become angry at one another,', 2);
     db.run('INSERT INTO comments (comment_comment, user_id) VALUES (?, ?)', 'I have a big family with seven people, my grandparents, parents, two brothers and me. We take care of one another, share housework, and often communicate all together.', 3);
 
-    app.get('/', function(req,res){
+    app.get('/articles', function(req,res){
         db.all('SELECT * FROM articles ', function(error, data){
             res.send(data);
         });
     });
 
+    app.get('/users', function(req,res){
+        db.all('SELECT * FROM users ', function(error, data){
+            res.send(data);
+        });
+    });
 });
 
 

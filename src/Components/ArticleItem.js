@@ -2,54 +2,75 @@ import React, { Component } from 'react';
 import './Articles.css';
 //propType is  used to make sure the data you receive is valid
 import PropTypes from 'prop-types';
-
-
-//import images from './Images'
-//import Container from 'react-bootstrap/container';
+import Comment from './Comment';
+import {Image, Button, Col}  from 'react-bootstrap';
+import { relative } from 'path';
 //import $ from "jquery";
+ //<img {this.props.article.image} /><br/>
+//.bind(this)
+//this is a comment react
+//{/* This is a comment */}
+
 
 export class ArticleItem extends Component {
     getStyle = () => {
         return {
             background: '#f4f4f4',
             padding: '10px',
-            borderBottom: '1px #ccc dotted',
+            paddingTop: '100px',
             textDecorationColor: this.props.article.like ? 
-            'blue' : 'none'
+            'blue' : 'none',
+            position: "relative",
+            
         }
     } 
-    //arraw function
-    like = (e) => {
-        if(this.like === false){
-            return (this.like.style.backgroundColor = "blue")
-        } else{
-            return (this.like.style.backgroundColor = "none")
-        }
+    //constructor function for toggle
+    constructor(props) {
+        super(props);
+        this.state = {
+            isToggleOn: true, 
+            color : '',
+            backgroundColor: ''
+        };
+    
+        // This binding is necessary to make `this` work in the callback
+        this.handleClick = this.handleClick.bind(this);
+      }
+    
+      handleClick() {
+        this.setState(state => ({
+          isToggleOn: !state.isToggleOn, color:'red', backgroundColor:'purple'
+        }));
     }
-    // like = (e) => {
-    //     console.log("kfoano")
-    // }
-  render() {
-    //<img {this.props.article.image} /><br/>
-    //.bind(this)
-    //this is a comment react
-    //{/* This is a comment */}
-    return (
-   
-        <div style = {this.getStyle()}>
-               <div><img src={this.props.article.image} alt=""/></div>
-          <p>
-            {this.props.article.description} <br/>
-            <input type="button" value="Send" onClick={() => this.like()} /*{this.markLike}*/ /> {' '}
-            {this.props.article.like} <br/>
-            {this.props.article.comment_id} <br/>
-          </p>
-          <div>
 
-          </div>
-        </div>
 
     
+
+
+  render() {
+
+    return (
+   
+        <div className="okay" style = {this.getStyle()}>
+            <div>
+                <Image src={this.props.article.image} alt="" id="imageArticle" />
+            </div>
+            
+            <p className="textDescription">
+                {this.props.article.description} <br/>
+            </p> 
+
+            <Button
+                style={{color: this.state.color, backgroundColor: this.state.backgroundColor}}
+                as={Col} md="1" className="buttonColor"
+                variant="outline-info"
+                onClick={this.handleClick}>
+                {this.state.isToggleOn ? 'TRUE' : 'FALSE'}
+            </Button>
+
+            <Comment />
+
+        </div>    
     )
 
   }
