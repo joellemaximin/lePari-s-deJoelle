@@ -5,10 +5,25 @@ import { Form, FormLabel, FormControl, Button,
   Col, FormGroup} from 'react-bootstrap';
 
 class Comment extends Component {
-  getComment = () =>{
+  getName = () =>{
     return{
-      backgroundColor: '#ccc',
+      position: 'relative',
+      color: '#212529',
+      padding: " auto 200px",
+      marginRight: '200px',
+      marginLeft: '200px',
+      border: '.2rem solid #ececec',
+      borderRadius: '8px',
+      textAlign: 'center',
     }
+  }
+
+  getComment = () => {
+    return {
+      position: 'relative',
+   
+    }
+
   }
 
   constructor(){
@@ -28,36 +43,42 @@ class Comment extends Component {
     this.setState({ [e.target.name]:  e.target.value});
   }
 
+  
   handleSubmit(e){
-    const div = document.createElement('div');
-    const p = document.createElement('p')
-    p.className += "newComment";
-
-    const text = ('Nouveau commentaire de :' +  this.state.fullName 
-    + this.state.comment );
-    text.appendChild(p)
+    document.write('Nouveau commentaire de :' + this.state.comment + ' '+ this.fullName);
     e.preventDefault();
   }
+
+    // const div = document.createElement('div');
+    // const p = document.createElement('p')
+    // p.className += "newComment";
+
+    // const text = ('Nouveau commentaire de :' +  this.state.fullName 
+    // + this.state.comment );
+    // text.appendChild(p)
+    // e.preventDefault();
+  
   
 
   render() {
     return (
       <div className="Comment">
-        <div style={this.getComment}>
-          <Form onSubmit={this.handleSubmit} className="createComment" >
-            <FormGroup controlId="full-name" as={Col} md="8">
+        <div>
+          <Form onSubmit={this.handleSubmit}  style={this.getName()} className="createComment" >
+            <FormGroup controlId="full-name" as={Col} md="12">
               <FormLabel className="FormRow">Full-name: </FormLabel>
                 <FormControl
                   type="text"
                   name="fullName"
                   value={this.fullName}
                   onChange={this.handleChange}
+                  className="textName"
                 />
             </FormGroup>
           
 
           
-            <FormGroup as={Col} md="8" controlId="formBasicComment">
+            <FormGroup as={Col} md="12"  style={this.getComment()} controlId="formBasicComment">
               <FormLabel className="FormRow addComment">Comment:</FormLabel>
                 <FormControl
                   type="text"
@@ -66,7 +87,7 @@ class Comment extends Component {
                   value={this.comment}
                   onChange={this.handleChange}
                 />
-              <Button type="submit" value="Submit" className="Subutton">Submit</Button>
+              <Button type="submit" size="md" value="Submit" className="Subutton">Submit</Button>
             </FormGroup>
           </Form>
         </div>
@@ -74,8 +95,6 @@ class Comment extends Component {
       
     );
   }
-
-
 }
 
 export default Comment;

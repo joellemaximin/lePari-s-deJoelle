@@ -34,6 +34,11 @@
 }
 
 #lastComment{
-    margin: 10px 250px;
+    margin: 10px 20px;
    
+}
+
+.main-styles{
+    padding: 2rem 4rem;
+    
 }

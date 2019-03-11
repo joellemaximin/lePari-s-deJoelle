@@ -16,3 +16,7 @@
   text-align: center;
   padding: 20px 30px;
 }
+
+.align-items-center{
+  align-items: center!important;
+}

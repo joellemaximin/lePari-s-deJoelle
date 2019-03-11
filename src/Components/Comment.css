@@ -1,7 +1,6 @@
 .createComent{
     top: 20px;
     flex: 1;
-    justify-content: 'center';
     align-items: 'center';
     margin-left: 100px;
     padding: 20px 70px;
@@ -10,8 +9,12 @@
 
 }
 
-Button .subutton{
+.Subutton{
     padding: 29px auto;
-    float: right;
+    margin-top: 30px!important;
+
+}
+
+.FormLabel{
 
 }

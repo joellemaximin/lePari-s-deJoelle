@@ -39,7 +39,7 @@ export class ArticleItem extends Component {
     
       handleClick() {
         this.setState(state => ({
-          isToggleOn: !state.isToggleOn, color:'black', backgroundColor:'red'
+          isToggleOn: !state.isToggleOn}, {color: !state.color}, {backgroundColor: !state.backgroundColor
         }));
     }
 
@@ -48,10 +48,10 @@ export class ArticleItem extends Component {
 
 
   render() {
-
+      //const { isToggleOn } = this.state
     return (
    
-        <div className="okay" style = {this.getStyle()}>
+        <div className="okay main-styles" style = {this.getStyle()}>
             <div>
                 <Image src={this.props.article.image} alt="" id="imageArticle" />
             </div>
@@ -65,9 +65,10 @@ export class ArticleItem extends Component {
                 as={Col} md="1" className="buttonColor"
                 variant="outline-info"
                 onClick={this.handleClick}>
-                {this.state.isToggleOn ? 'TRUE' : 'FALSE'}
+                {this.state.isToggleOn ? 'LIKE' : 'UNLIKE'}
             </Button>
 
+            <h2>Commentaires: </h2>
             <div className="lastComment">
                 <p id='lastComment'>
                   {this.props.article.id}. {' '}

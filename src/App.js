@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './Components/Header/Header';
 import Articles from './Components/Articles';
 import Comments from './Components/Comment';
+import Footer from './Components/Footer/Footer';
+
 import $ from "jquery";
 //import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -107,6 +109,56 @@ class App extends Component {
         description: "Belle place a y aller ",
         comment: "La place est super. Merci pour le partage.",
       }
+    ],
+
+    users: [
+      {
+        id: 1,
+        profile: "",
+        firstName: "Alex",
+        lastName: "Trian",
+      },
+      {
+        id: 2,
+        profile: "",
+        firstName: "Ronan",
+        lastName: "Josepe",
+      },
+      {
+        id: 3,
+        profile: "",
+        firstName: "Catherine",
+        lastName: "Doree",
+      },
+      {
+        id: 4,
+        profile: "",
+        firstName: "Hubert",
+        lastName: "Germain",
+      },
+    ],
+
+    comments: [
+      {
+        id: 1,
+        user_id: 1,
+        article_id: "3",
+      },
+      {
+        id: 2,
+        user_id: 4,
+        article_id: "2",
+      },
+      {
+        id: 3,
+        user_id: 3,
+        article_id: "4",
+      },
+      {
+        id: 4,
+        user_id: 2,
+        article_id: "1",
+      },
     ]
   }
   
@@ -122,8 +174,12 @@ class App extends Component {
           <Navbar.Brand href="#">{this.props.header}</Navbar.Brand>
         </Navbar>
         <Header/>
-        <Articles articles={this.state.articles} /*{this.markLike}*//>
-        <Comments/>
+        <div className="container-fluid align-items-center">
+          <Articles articles={this.state.articles} /*{this.markLike}*//>
+          <Comments/>
+          <Footer/>
+        </div>
+        
       </div>
     );
   }

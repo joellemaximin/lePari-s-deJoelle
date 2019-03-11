@@ -58,42 +58,9 @@ class Articles extends Component {
       
     return this.props.articles.map((article) => (
 
-        <ArticleItem key={article.id} article={article} />
-
-
-    
+      <ArticleItem key={article.id} article={article} />
     
     ));
-
-
-
-
-
-
-
-
-
-
-
-
-
-      /*<div className="cards container">
-        <div className="image-section">
-          <img src="http://localhost:3000/Images/hotel.jpg" alt=""/>
-
-        </div>
-        <div className="description-section">
-          <p>truc machin chose truc machin chosetruc machin chosetruc machin chose</p>
-        </div>
-        <div className="comment-section">
-          <span>Like</span>
-          <div className="commentLast">
-            <p>blabalbalbalbablaa</p>
-          </div>
-        </div>
-
-      </div>*/
-      
     
   }
 }
