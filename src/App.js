@@ -73,44 +73,39 @@ class App extends Component {
       {
         id: 1,
         image: " http://localhost:3000/Images/hotel.jpg",
-        description: "this is the first article",
-        comment: "comment_id",
-        like: false,
+        description: "Hotel agréable, près des quais, belle vue",
+        comment: "L'hotel est bien, piscine chauffé, mais la qualité prix du petit dej n'est pas top",
       },
       {
         id: 2,
         image: " http://localhost:3000/Images/restau.jpeg",
-        description: "this is the second article",
-        comment: "comment_id",
-        like: false,
+        description: "Un des meilleurs restaurant que j'ai été durant mon voyage sur Paris",
+        comment: "Le restaurant est bien. Merci pour le partage.",
       },
       {
         id: 3,
         image:" http://localhost:3000/Images/opera.jpg",
-        description: "this is the third article",
-        comment: "comment_id",
-        like: true,
+        description: "Un theatre magnifique lors de mon voyage sur Paris",
+        comment: "Laplace Opéra est bien. Merci pour le partage.",
+
       },
       {
         id: 4,
         image:" http://localhost:3000/Images/montmatre.jpg",
-        description: "this is the 4 article",
-        comment: "comment_id",
-        like: true,
+        description: "Superbe place/Eglise a visiter, elle vue sur Paris.",
+        comment: "Montmatre est bien. Merci pour le partage.",
       },
       {
         id: 5,
         img: " http://localhost:3000/Images/sacrecoeur.jpeg",
-        description: "this is the 5 article",
-        comment: "comment_id",
-        like: true,
+        description: "Superbe place/Eglise a visiter, quand j'ai été durant mon voyage sur Paris",
+        comment: "Le Sacré Coeur est bien. Merci pour le partage.",
       },
       {
         id: 6,
         img:" http://localhost:3000/Images/triomphe.jpeg",
-        description: "this is the 6 article",
-        comment: "comment_id",
-        like: false,
+        description: "Belle place a y aller ",
+        comment: "La place est super. Merci pour le partage.",
       }
     ]
   }

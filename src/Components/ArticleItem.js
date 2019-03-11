@@ -4,7 +4,7 @@ import './Articles.css';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
 import {Image, Button, Col}  from 'react-bootstrap';
-import { relative } from 'path';
+//import { relative } from 'path';
 //import $ from "jquery";
  //<img {this.props.article.image} /><br/>
 //.bind(this)
@@ -28,9 +28,9 @@ export class ArticleItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isToggleOn: true, 
-            color : '',
-            backgroundColor: ''
+            isToggleOn: false, 
+            color : 'white',
+            backgroundColor: 'green'
         };
     
         // This binding is necessary to make `this` work in the callback
@@ -39,7 +39,7 @@ export class ArticleItem extends Component {
     
       handleClick() {
         this.setState(state => ({
-          isToggleOn: !state.isToggleOn, color:'red', backgroundColor:'purple'
+          isToggleOn: !state.isToggleOn, color:'black', backgroundColor:'red'
         }));
     }
 
@@ -68,8 +68,14 @@ export class ArticleItem extends Component {
                 {this.state.isToggleOn ? 'TRUE' : 'FALSE'}
             </Button>
 
-            <Comment />
+            <div className="lastComment">
+                <p id='lastComment'>
+                  {this.props.article.id}. {' '}
+                  {this.props.article.comment}
+                </p>
+            </div>
 
+            <Comment />
         </div>    
     )
 

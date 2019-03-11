@@ -5,6 +5,12 @@ import { Form, FormLabel, FormControl, Button,
   Col, FormGroup} from 'react-bootstrap';
 
 class Comment extends Component {
+  getComment = () =>{
+    return{
+      backgroundColor: '#ccc',
+    }
+  }
+
   constructor(){
     super();
     this.state = {
@@ -23,7 +29,13 @@ class Comment extends Component {
   }
 
   handleSubmit(e){
-    document.write('Nouveau commentaire de :' + this.state.comment + ' '+ this.fullName);
+    const div = document.createElement('div');
+    const p = document.createElement('p')
+    p.className += "newComment";
+
+    const text = ('Nouveau commentaire de :' +  this.state.fullName 
+    + this.state.comment );
+    text.appendChild(p)
     e.preventDefault();
   }
   
@@ -31,9 +43,9 @@ class Comment extends Component {
   render() {
     return (
       <div className="Comment">
-        <div>
+        <div style={this.getComment}>
           <Form onSubmit={this.handleSubmit} className="createComment" >
-            <FormGroup controlId="full-name" as={Col} md="6">
+            <FormGroup controlId="full-name" as={Col} md="8">
               <FormLabel className="FormRow">Full-name: </FormLabel>
                 <FormControl
                   type="text"
@@ -45,8 +57,8 @@ class Comment extends Component {
           
 
           
-            <FormGroup as={Col} md="6" controlId="formBasicComment">
-              <FormLabel className="FormRow">Comment:</FormLabel>
+            <FormGroup as={Col} md="8" controlId="formBasicComment">
+              <FormLabel className="FormRow addComment">Comment:</FormLabel>
                 <FormControl
                   type="text"
                   placeholder='Ajouter un commentaire..'
@@ -62,6 +74,8 @@ class Comment extends Component {
       
     );
   }
+
+
 }
 
 export default Comment;

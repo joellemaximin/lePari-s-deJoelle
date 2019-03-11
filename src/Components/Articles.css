@@ -14,8 +14,9 @@
     text-align: center;
     bottom: 0;
     left: 400px;
-    margin: 18px auto;
-    
+    margin: 18px 300px;
+    padding: 45px auto;
+    background-color: #ffb3ff;   
 
 }
 
@@ -23,4 +24,16 @@
     margin: 15px auto;
     color: #fff;
     
+}
+
+.lastComment{
+    background-color: #ffb3ff;
+    margin: 100px 200px;
+   
+
+}
+
+#lastComment{
+    margin: 10px 250px;
+   
 }

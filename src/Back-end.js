@@ -13,10 +13,31 @@ app.use(cors());
 db.serialize(() => {
     db.run('CREATE TABLE IF NOT EXISTS articles(article_id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, article_img  TEXT, article_description TEXT, article_like BOOLEAN, article_comment TEXT)');
     
-    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', 'http://localhost:3000/Images/hotel.jpg', "blablbalblab", true, "premier commentaire")
-    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', 'http://localhost:3000/Images/restau.jpeg', "blablbalblab", false, "deuxième commentaire")
-    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', 'http://localhost:3000/Images/opera.jpg', "blablbalblab", true, "troisieme commentaire")
-    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', ' http://localhost:3000/Images/montmatre.jpg', "blablbalblab", false, "quatrieme commentaire")
+    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)',
+     'http://localhost:3000/Images/hotel.jpg',
+     "Hotel agréable, près des quais, belle vue",
+      true,
+     "L'hotel est bien, piscine chauffé, mais la qualité prix du petit dej n'est pas top"
+    )
+
+    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', 'http://localhost:3000/Images/restau.jpeg',
+     "Un des meilleurs restaurant que j'ai été durant mon voyage sur Paris",
+      false,
+     "Le restaurant est bien. Merci pour le partage."
+    )
+
+    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', 'http://localhost:3000/Images/opera.jpg',
+     "Un theatre magnifique lors de mon voyage sur Paris",
+      true,
+     "Laplace Opéra est bien. Merci pour le partage."
+    )
+
+    db.run('INSERT INTO articles (article_img, article_description, article_like, article_comment) VALUES (?, ?, ?, ?)', ' http://localhost:3000/Images/montmatre.jpg',
+     "Superbe place/Eglise a visiter, quand j'ai été durant mon voyage sur Paris",
+      false,
+     "Le Sacré Coeur est bien. Merci pour le partage."
+    )
+
 
 
     db.run('CREATE TABLE IF NOT EXISTS users(user_id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, user_firstname  TEXT, user_lastname TEXT, user_profile TEXT)');
