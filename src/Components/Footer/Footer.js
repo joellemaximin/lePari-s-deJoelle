@@ -12,16 +12,16 @@ class Footer extends Component {
       <div role="contentinfo" className="footer">
         <div className="social-links">
           <a className="social-link" href="https://www.facebook.com" aria-label="facebook">
-            <i class="fab fa-facebook-square"></i>
+            <i className="fab fa-facebook-square"></i>
           </a>
           <a className="social-link" href="https://www.instagram.com" aria-label="instagram">
-            <i class="fab fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </a>
           <a className="social-link" href="https://www.twitter.com" aria-label="twitter">
-            <i class="fab fa-twitter-square"></i> 
+            <i className="fab fa-twitter-square"></i> 
           </a>
           <a className="social-link" href="https://www.youtube.com" aria-label="youtube">
-            <i class="fab fa-youtube-square"></i>
+            <i className="fab fa-youtube-square"></i>
           </a>
         </div>
       </div>

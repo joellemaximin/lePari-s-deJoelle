@@ -53,14 +53,14 @@ class Article{
 }*/
 
 class Articles extends Component {
-
+  //this.props.articles.map((article) =>
   render() {
       
-    return this.props.articles.map((article) => (
-
-      <ArticleItem key={article.id} article={article} />
-
-    ));
+    return  (
+      <div>
+      <ArticleItem/>
+      </div>
+    )
     
   }
 }

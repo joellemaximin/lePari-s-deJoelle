@@ -6,7 +6,7 @@ import Comment from './Comment';
 import {Image, Button, Col}  from 'react-bootstrap';
 //import { relative } from 'path';
 import $ from "jquery";
- //<img {this.props.article.image} /><br/>
+ //<img {this.image} /><br/>
 //.bind(this)
 //this is a comment react
 //{/* This is a comment */}
@@ -18,8 +18,8 @@ export class ArticleItem extends Component {
             background: '#f4f4f4',
             padding: '10px',
             paddingTop: '100px',
-            textDecorationColor: this.props.article.like ? 
-            'blue' : 'none',
+            //textDecorationColor: this.like ? 
+            //blue' : 'none',
             position: "relative",
             
         }
@@ -31,8 +31,7 @@ export class ArticleItem extends Component {
             isToggleOn: false, 
             color : 'white',
             backgroundColor: 'green',
-            donne : [],
-            
+            donne : []
         };
     
         // This binding is necessary to make `this` work in the callback
@@ -47,13 +46,12 @@ export class ArticleItem extends Component {
 
     componentWillMount(){
         var that = this;
-    $.get('http://localhost:3000/', function (response) {
-       let ok = response.map(function(artic, i){
-            return (
-                <Comment key={i} comment={} />
-            )
+    $.get('http://localhost:8080/', function (response) {
+        console.log(response);
+        let articles = response.map(function(artic){
+            return artic;
         })
-         that.setState({donne : ok})
+         that.setState({donne: articles})
        });
     }
 
@@ -91,19 +89,17 @@ export class ArticleItem extends Component {
       //const { isToggleOn } = this.state
       const { backgroundColor } = this.state
       const { color } = this.state
-      console.log(this.state.donne.description)
+      console.log(this.state.donne)
 
     return (
    
         <div className="okay main-styles" style = {this.getStyle()}>
             <div>
-                
-                <Image src={process.env.PUBLIC_URL + this.state.donne.article_img} alt="" id="imageArticle" />
+                <Image src={this.image} alt="" id="imageArticle" />
             </div>
             
             <p className="textDescription">
-                {this.props.article.description} <br/>
-                {this.state.donne.description}
+                {this.description} <br/>
             </p> 
 
             <Button
@@ -117,8 +113,8 @@ export class ArticleItem extends Component {
             <h2>Commentaires: </h2>
             <div className="lastComment">
                 <p id='lastComment'>
-                  {this.props.article.id}. {' '}
-                  {this.props.article.comment}
+                  {this.id}. {' '}
+                  {this.comment}
                 </p>
             </div>
 

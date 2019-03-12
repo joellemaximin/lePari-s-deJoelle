@@ -4,12 +4,11 @@ import Articles from './Components/Articles';
 import Comments from './Components/Comment';
 import Footer from './Components/Footer/Footer';
 
-import $ from "jquery";
+//import $ from "jquery";
 //import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import './App.css';
 
-var container=document.getElementById('container')
 /*
 $.get('http://localhost:8080/articles', function (response) {
   response.forEach(function(model){
@@ -30,7 +29,7 @@ $.get('http://localhost:8080/users', function (response) {
 });
 
 */
-$.get('http://localhost:8080/', function (response, error) {
+/*$.get('http://localhost:8080/', function (response, error) {
   response.forEach(function(artic){
     new App(artic.article_img, artic.article_description, artic.article_like, artic.article_comment);
     const div = document.createElement('p');
@@ -39,7 +38,7 @@ $.get('http://localhost:8080/', function (response, error) {
   })
   
    console.log(response);
-});
+});*/
 
 
 // $.post('http://localhost:8080/users',
