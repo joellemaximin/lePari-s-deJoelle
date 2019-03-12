@@ -59,7 +59,7 @@ class Articles extends Component {
     return this.props.articles.map((article) => (
 
       <ArticleItem key={article.id} article={article} />
-    
+
     ));
     
   }

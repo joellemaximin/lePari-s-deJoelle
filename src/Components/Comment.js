@@ -42,10 +42,19 @@ class Comment extends Component {
   handleChange(e){
     this.setState({ [e.target.name]:  e.target.value});
   }
+    // handleName(e){
+  //   this.setState()
+  // }
+
+  // handleComment(e){
+  //   this.setState()
+  // }
+
+
 
   
   handleSubmit(e){
-    document.write('Nouveau commentaire de :' + this.state.comment + ' '+ this.fullName);
+    alert('Nouveau commentaire de :' + this.state.comment + ' '+ this.fullName);
     e.preventDefault();
   }
 
@@ -72,7 +81,6 @@ class Comment extends Component {
                   name="fullName"
                   value={this.fullName}
                   onChange={this.handleChange}
-                  className="textName"
                 />
             </FormGroup>
           

@@ -7,9 +7,10 @@ import Footer from './Components/Footer/Footer';
 import $ from "jquery";
 //import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-
 import './App.css';
 
+var container=document.getElementById('container')
+/*
 $.get('http://localhost:8080/articles', function (response) {
   response.forEach(function(model){
     const div = document.createElement('div');
@@ -23,56 +24,50 @@ $.get('http://localhost:8080/users', function (response) {
   response.forEach(function(model){
     const div = document.createElement('div');
     div.innerHTML = model.user_firstname;
-    document.body.appendChild(div);
+    container.appendChild(div);
     console.log(model);
   });
 });
-/*
-var articles = [];
 
-class Article{
-  constructor(img, description, like, comment){
-    this.img = img;
-    this.description = description;
-    this.like = like;
-    this.comment = comment;
-    this.parent = document.getElementById('root');
-  }
-
-  create(){
-    this.container = document.createElement('div');
-
-    this.title = document.createElement('h3');
-
-    this.containerImg = document.createElement('div');
-    this.image = document.createElement('img');
-
-    this.containerParag = document.createElement('div');
-    this.parag = document.createElement('p'); //paragrph
-
-    this.containerComm = document.createElement('div');
-    this.span = document.createElement('span');
-    this.innerComm = document.createElement('div');
-    this.innerCommText = document.createElement('p'); //comment 
-  }
-
-  setAtt(){
-    this.container.setAttribute('class', "card, container");
-    this.containerImg.setAttribute('class', "image-section");
-    this.image.setAttribute('src', "this.image");
-    this.containerParag.setAttribute('class', "description-section");
-    this.containerComm.setAttribute('class', "comment-section");
-    this.innerComm.setAttribute('class', "commentLast")
-  }
-
-}
 */
+$.get('http://localhost:8080/', function (response, error) {
+  response.forEach(function(artic){
+    new App(artic.article_img, artic.article_description, artic.article_like, artic.article_comment);
+    const div = document.createElement('p');
+    div.innerHTML = artic.article_coment;
+    //container.appendChild(div)
+  })
+  
+   console.log(response);
+});
+
+
+// $.post('http://localhost:8080/users',
+//   {
+//     //user_firstname : ' Henri'
+//   },
+//   function(response){
+
+//   }
+// );
+
+// function envoyer(){
+//   var article_description = document.querySelector('#articles').value;
+//   console.log(article_description);
+//   $.post('http://localhost:8080/articles', {article_description : article_description}, function (response){
+//     console.log(response);
+//   });
+// }
+
+// console.log(envoyer)
+
+
 
 
 class App extends Component {
   state = {
-    articles: [
-      {
+    articles: []
+     /* {
         id: 1,
         image: " http://localhost:3000/Images/hotel.jpg",
         description: "Hotel agréable, près des quais, belle vue",
@@ -109,8 +104,8 @@ class App extends Component {
         description: "Belle place a y aller ",
         comment: "La place est super. Merci pour le partage.",
       }
-    ],
-
+    ]
+    
     users: [
       {
         id: 1,
@@ -160,6 +155,7 @@ class App extends Component {
         article_id: "1",
       },
     ]
+    */
   }
   
   //arraw function
@@ -169,7 +165,7 @@ class App extends Component {
   render() {
 
     return (
-      <div className="bodyapp">
+      <div className="bodyapp" id="container">
         <Navbar expand="lg" variant="light" bg="light">
           <Navbar.Brand href="#">{this.props.header}</Navbar.Brand>
         </Navbar>
