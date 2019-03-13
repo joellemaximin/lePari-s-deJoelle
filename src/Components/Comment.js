@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-//import $ from "jquery";
+import $ from "jquery";
 import './Comment.css';
 import { Form, FormLabel, FormControl, Button,
   Col, FormGroup} from 'react-bootstrap';
+
+
+
 
 class Comment extends Component {
   getName = () =>{
@@ -49,7 +52,21 @@ class Comment extends Component {
   // handleComment(e){
   //   this.setState()
   // }
+  componentWillMount(){
+      
+    function send(){
+      const input = document.getElementById('commentSec').value;
+      console.log(input);
 
+      $.post(
+        'http://localhost:8080/comment',
+        {comment_comment : input}, function(response){
+          console.log(response)
+        }
+      )
+    }
+
+  }
 
 
   
@@ -58,22 +75,22 @@ class Comment extends Component {
     e.preventDefault();
   }
 
-    // const div = document.createElement('div');
-    // const p = document.createElement('p')
-    // p.className += "newComment";
+  // const div = document.createElement('div');
+  // const p = document.createElement('p')
+  // p.className += "newComment";
 
-    // const text = ('Nouveau commentaire de :' +  this.state.fullName 
-    // + this.state.comment );
-    // text.appendChild(p)
-    // e.preventDefault();
-  
+  // const text = ('Nouveau commentaire de :' +  this.state.fullName 
+  // + this.state.comment );
+  // text.appendChild(p)
+  // e.preventDefault();
+
   
 
   render() {
     return (
       <div className="Comment">
-        <div>
-          <Form onSubmit={this.handleSubmit}  style={this.getName()} className="createComment" >
+
+          <Form method="POST" style={this.getName()} onSubmit={this.handleSubmit} id="commentSec" className="createComment" >
             <FormGroup controlId="full-name" as={Col} md="12">
               <FormLabel className="FormRow">Full-name: </FormLabel>
                 <FormControl
@@ -98,7 +115,6 @@ class Comment extends Component {
               <Button type="submit" size="md" value="Submit" className="Subutton">Submit</Button>
             </FormGroup>
           </Form>
-        </div>
       </div>
       
     );

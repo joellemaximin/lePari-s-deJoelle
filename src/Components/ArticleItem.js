@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Comment from './Comment';
 import {Image, Button, Col}  from 'react-bootstrap';
 //import { relative } from 'path';
-import $ from "jquery";
+//import $ from "jquery";
  //<img {this.image} /><br/>
 //.bind(this)
 //this is a comment react
@@ -44,35 +44,20 @@ export class ArticleItem extends Component {
         }));
     }
 
-    componentWillMount(){
-        var that = this;
-    $.get('http://localhost:8080/', function (response) {
-        console.log(response);
-        let articles = response.map(function(artic){
-            return artic;
-        })
-         that.setState({donne: articles})
-       });
-    }
-
-
-    //     let that = this;
-    //     $.get('http://localhost:8080/', function (data) {
-    //         let articles = data.map(function(desc){
-    //             return (
-    //                 <h3 key={desc}> {desc.article_description}</h3>
-    //             )
-    //         // })
-    //         // response.forEach(function(artic){
-    //         // new ArticleItem(artic.article_img, artic.article_description, artic.article_like, artic.article_comment);
-            
-    //         // })
-    //         // console.log(response);
-    //     });
-    //     console.log(articles)
-    //     that.setState( {comment: description})
+    // componentWillMount(){
+    //     var that = this;
+    // $.get('http://localhost:8080/', function (response) {
+    //     console.log(response);
+    //     let articles = response.map(function(artic, i){
+    //         return(
+    //             < artic;
+    //         )
+    //     })
+    //      that.setState({donne: articles})
+    //    });
     // }
-       
+
+  
 
 
     /*
@@ -89,18 +74,19 @@ export class ArticleItem extends Component {
       //const { isToggleOn } = this.state
       const { backgroundColor } = this.state
       const { color } = this.state
-      console.log(this.state.donne)
+      console.log(this.props.item)
+      console.log(this.props.item.comment_comment)
 
     return (
    
         <div className="okay main-styles" style = {this.getStyle()}>
             <div>
-                <Image src={this.image} alt="" id="imageArticle" />
+                <Image src={this.props.item.article_img} alt="" id="imageArticle" />
             </div>
             
-            <p className="textDescription">
-                {this.description} <br/>
-            </p> 
+            <div className="textDescription">
+                {this.props.item.article_description} <br/>
+            </div> 
 
             <Button
                 style={{color, backgroundColor}}
@@ -111,14 +97,15 @@ export class ArticleItem extends Component {
             </Button>
 
             <h2>Commentaires: </h2>
-            <div className="lastComment">
-                <p id='lastComment'>
-                  {this.id}. {' '}
-                  {this.comment}
-                </p>
+    
+            <div className="lastComment" id='lastComment'>
+                 {' '}
+                {this.props.item.comment_id}
             </div>
-
-                <Comment />
+        
+            <Comment 
+            
+            />
 
         </div>    
     )

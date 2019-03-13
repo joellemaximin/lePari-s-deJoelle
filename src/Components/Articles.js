@@ -1,64 +1,110 @@
 import React, { Component } from 'react';
 import './Articles.css';
-//import images from './Images'
-//import $ from "jquery";
+import $ from "jquery";
 import ArticleItem from './ArticleItem';
+
 //propType is  used to make sure the data you receive is valid
 import PropTypes from 'prop-types';
 
-/*$.get('http://localhost:8080/', function (response, error) {
- response.forEach(function(artic){
-   new Article(artic.article_img, artic.article_description, artic.article_like, artic.article_comment);
- })
-  console.log(response);
-});
-
-var articles = [];
-
-class Article{
-  constructor(img, description, like, comment){
-    this.img = img;
-    this.description = description;
-    this.like = like;
-    this.comment = comment;
-    this.parent = document.getElementById('root');
-  }
-
-  create(){
-    this.container = document.createElement('div');
-
-    this.title = document.createElement('h3');
-
-    this.containerImg = document.createElement('div');
-    this.image = document.createElement('img');
-
-    this.containerParag = document.createElement('div');
-    this.parag = document.createElement('p'); //paragrph
-
-    this.containerComm = document.createElement('div');
-    this.span = document.createElement('span');
-    this.innerComm = document.createElement('div');
-    this.innerCommText = document.createElement('p'); //comment 
-  }
-
-  setAtt(){
-    this.container.setAttribute('class', "card, container");
-    this.containerImg.setAttribute('class', "image-section");
-    this.image.setAttribute('src', "this.image");
-    this.containerParag.setAttribute('class', "description-section");
-    this.containerComm.setAttribute('class', "comment-section");
-    this.innerComm.setAttribute('class', "commentLast");
-  }
-
-}*/
 
 class Articles extends Component {
+  
+  constructor(){
+    super()
+    this.state={
+      donne: [],
+      comment: [],
+      // comment1: [],
+      // comment2: [],
+
+    }
+  }
+
+  componentWillMount(){
+    var that = this;
+    $.get('http://localhost:8080/', function (response) {
+    console.log(response);
+    let articles = response.map(function(artic, i){
+      return(
+        <ArticleItem key={i} item={artic} />
+      )
+    })
+     that.setState({donne: articles})
+    });
+    
+    $.get('http://localhost:8080/lastcomment', function (response) {
+    console.log(response);
+    let comment = response.map(function(comm, i){
+      return(
+        <ArticleItem key={i} item={comm} />
+      )
+    })
+      that.setState({comment: comment})
+    });
+
+    // $.get('http://localhost:8080/lastcomment2', function (response) {
+    // console.log(response);
+    // let comment = response.map(function(comm2, i){
+    //   return(
+    //     <ArticleItem key={i} item={comm2} />
+    //   )
+    // })
+    //   that.setState({comment1: comment})
+    // });
+    
+    // $.get('http://localhost:8080/lastcomment3', function (response) {
+    //   //console.log(response);
+    //   let comment = response.map(function(comm3, i){
+    //     return(
+    //       <ArticleItem key={i} item={comm3} />
+    //     )
+    //   })
+    //   that.setState({comment2: comment})
+    // });
+    
+    // $.get('http://localhost:8080/lastcomment4', function (response) {
+    //   console.log(response);
+    // let comment = response.map(function(comm4, i){
+    //     return(
+    //       <ArticleItem key={i} item={comm4} />
+    //     )
+    //   })
+    //   that.setState({comment3: comment})
+    // });
+
+    // $.get('http://localhost:8080/lastcomment5', function (response) {
+    //   //console.log(response);
+    //   let comment = response.map(function(comm5, i){
+    //       return(
+    //         <ArticleItem key={i} item={comm5} />
+    //       )
+    //   })
+    //     that.setState({comment4: comment})
+    // });
+    
+    // $.get('http://localhost:8080/lastcomment6', function (response) {
+    //   console.log(response);
+    //   let comment = response.map(function(comm6, i){
+    //       return(
+    //         <ArticleItem key={i} item={comm6} />
+    //       )
+    //   })
+    //     that.setState({comment5: comment})
+    // });
+    
+
+      
+  }
+
   //this.props.articles.map((article) =>
   render() {
-      
     return  (
       <div>
-      <ArticleItem/>
+        
+        {this.state.donne}
+        {this.state.comment}
+
+    
       </div>
     )
     
